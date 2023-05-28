@@ -4,4 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.projeto.integrado.entity.StatusTarefa;
 
-public interface StatusTarefaRepository extends JpaRepository<StatusTarefa, Integer> {}
+import java.util.Optional;
+
+public interface StatusTarefaRepository extends JpaRepository<StatusTarefa, Integer> {
+
+}

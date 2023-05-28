@@ -62,4 +62,13 @@ public class ProjetoController {
 		else 
 			return new ResponseEntity<>(false, HttpStatus.OK);
 	}
+
+	@GetMapping("/{description}")
+	public ResponseEntity<Projeto> getByDescription(@PathVariable String description) {
+		Projeto projeto = projetoService.getByDescription(description);
+		if(projeto != null)
+			return new ResponseEntity<>(projeto, HttpStatus.OK);
+		else
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+	}
 }

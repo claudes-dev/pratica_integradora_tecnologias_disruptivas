@@ -2,6 +2,7 @@ package com.projeto.integrado.controller;
 
 import java.util.List;
 
+import com.projeto.integrado.entity.StatusTarefa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,5 +62,14 @@ public class TarefaController {
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		else 
 			return new ResponseEntity<>(false, HttpStatus.OK);
+	}
+
+	@GetMapping("/{statusTarefaId}")
+	public ResponseEntity<Tarefa> getByStatusTarefaId(@PathVariable Integer statusTarefaId) {
+		Tarefa tarefa = tarefaService.getByStatusTarefa(statusTarefaId);
+		if(tarefa != null)
+			return new ResponseEntity<>(tarefa, HttpStatus.OK);
+		else
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	}
 }

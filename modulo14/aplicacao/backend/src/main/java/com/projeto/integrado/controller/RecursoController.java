@@ -62,4 +62,13 @@ public class RecursoController {
 		else 
 			return new ResponseEntity<>(false, HttpStatus.OK);
 	}
+
+	@GetMapping("/{name}")
+	public ResponseEntity<Recurso> getRecursoByName(@PathVariable String name) {
+		Recurso recurso = recursoService.getRecursoByName(name);
+		if(recurso != null)
+			return new ResponseEntity<>(recurso, HttpStatus.OK);
+		else
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+	}
 }
