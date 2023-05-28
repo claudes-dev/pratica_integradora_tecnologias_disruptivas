@@ -70,7 +70,7 @@ const ListarTarefa = () => {
     setTarefa(tarefaParaEditar);
 
     //Seta como true o state responsável pela exibição do Model de Editar Tarefa
-    setOpenEditar(true)
+    handleOpenEditar(true)
   };
 
   const handleDeletar = (id) => {
